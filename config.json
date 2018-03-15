@@ -15,7 +15,8 @@
           "alterId": 64
         }
       ]
-    }
+    },
+    "streamSettings": {}
   },
   "outbound": {
     "protocol": "freedom",
