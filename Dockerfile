@@ -1,5 +1,5 @@
 FROM alpine:latest
-ENV UUID 60ca58e9-003e-4c01-98de-c2223ae49153 
+ENV UUID bae4c69e-3fe3-45d4-aaae-43dc34855efc
 
 ADD https://storage.googleapis.com/v2ray-docker/v2ray /usr/bin/v2ray/
 ADD https://storage.googleapis.com/v2ray-docker/v2ctl /usr/bin/v2ray/
