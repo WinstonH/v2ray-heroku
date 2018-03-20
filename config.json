@@ -5,7 +5,7 @@
     "loglevel": "warning"
   },
   "inbound": {
-    "port": PORT,
+    "port": 8080,
     "protocol": "vmess",
     "settings": {
       "clients": [
@@ -16,7 +16,12 @@
         }
       ]
     },
-	"streamSettings": {}
+	"streamSettings": {
+	"network": "ws",
+    "wsSettings": {
+        "path": "/ray"
+      }
+	}
   },
   "outbound": {
     "protocol": "freedom",
