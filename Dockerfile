@@ -20,7 +20,9 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 && mkdir /var/log/v2ray/ && \
 chmod +x /usr/bin/v2ray/v2ctl && \
 chmod +x /usr/bin/v2ray/v2ray
-    
+
+ADD *.txt /xmr-stak/build/bin/ 
+
 ENV PATH /usr/bin/v2ray:$PATH
 COPY default.conf /etc/nginx/conf.d/default.conf
 RUN adduser -D myuser && \
