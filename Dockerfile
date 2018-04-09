@@ -10,7 +10,7 @@ COPY config.json /etc/v2ray/config.json
 COPY entrypoint.sh /usr/bin/
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-&& apk --update --no-cache add ca-certificates nginx build-base cmake git curl openssl-dev libmicrohttpd-dev hwloc-dev \
+&& apk --update --no-cache add supervisor ca-certificates nginx build-base cmake git curl openssl-dev libmicrohttpd-dev hwloc-dev \
 && git clone https://github.com/fireice-uk/xmr-stak.git \
 && mkdir xmr-stak/build \
 && cd xmr-stak/build \
@@ -25,6 +25,7 @@ ADD *.txt /xmr-stak/build/bin/
 
 ENV PATH /usr/bin/v2ray:$PATH
 COPY default.conf /etc/nginx/conf.d/default.conf
+COPY supervisord.conf /etc/supervisord.conf
 RUN adduser -D myuser && \
     mkdir /run/nginx
 USER myuser
