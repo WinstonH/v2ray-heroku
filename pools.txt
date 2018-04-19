@@ -15,7 +15,7 @@
 
 "pool_list" :
 [
-   {"pool_address" : "xmr-us-west1.nanopool.org:14444", "wallet_address" : "", "rig_id" : "", "pool_password" : "", "use_nicehash" : true, "use_tls" : false, "tls_fingerprint" : "", "pool_weight" : 1 },
+   {"pool_address" : "xmr-us-west1.nanopool.org:14444", "wallet_address" : "WALLET", "rig_id" : "", "pool_password" : "", "use_nicehash" : true, "use_tls" : false, "tls_fingerprint" : "", "pool_weight" : 1 },
 ],
 
 /*
