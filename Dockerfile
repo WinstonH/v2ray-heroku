@@ -8,7 +8,6 @@ ADD https://storage.googleapis.com/v2ray-docker/geoip.dat /usr/bin/v2ray/
 ADD https://storage.googleapis.com/v2ray-docker/geosite.dat /usr/bin/v2ray/
 
 COPY config.json /etc/v2ray/config.json
-COPY entrypoint.sh /usr/bin/
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
 && apk upgrade --no-cache \
@@ -28,6 +27,8 @@ ADD *.txt /xmr-stak/build/bin/
 ENV PATH /usr/bin/v2ray:$PATH
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY supervisord.conf /etc/supervisord.conf
+
+COPY entrypoint.sh /usr/bin/
 RUN adduser -D myuser && \
     mkdir /run/nginx
 USER myuser
