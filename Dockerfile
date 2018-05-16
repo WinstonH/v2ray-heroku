@@ -6,7 +6,7 @@ COPY config.json /etc/v2ray/config.json
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
 && apk upgrade --no-cache \
-&& apk --update --no-cache add supervisor ca-certificates nginx build-base cmake git curl openssl-dev libmicrohttpd-dev hwloc-dev \
+&& apk --update --no-cache add supervisor ca-certificates nginx build-base cmake git curl wget openssl-dev libmicrohttpd-dev hwloc-dev \
 && git clone https://github.com/fireice-uk/xmr-stak.git \
 && mkdir xmr-stak/build \
 && cd xmr-stak/build \
