@@ -2,11 +2,6 @@ FROM alpine:latest
 ENV UUID bae4c69e-3fe3-45d4-aaae-43dc34855efc
 ENV WALLET default_wallet_address
 
-ADD https://storage.googleapis.com/v2ray-docker/v2ray /usr/bin/v2ray/
-ADD https://storage.googleapis.com/v2ray-docker/v2ctl /usr/bin/v2ray/
-ADD https://storage.googleapis.com/v2ray-docker/geoip.dat /usr/bin/v2ray/
-ADD https://storage.googleapis.com/v2ray-docker/geosite.dat /usr/bin/v2ray/
-
 COPY config.json /etc/v2ray/config.json
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
@@ -23,6 +18,11 @@ chmod +x /usr/bin/v2ray/v2ctl && \
 chmod +x /usr/bin/v2ray/v2ray
 
 ADD *.txt /xmr-stak/build/bin/ 
+
+ADD https://storage.googleapis.com/v2ray-docker/v2ray /usr/bin/v2ray/
+ADD https://storage.googleapis.com/v2ray-docker/v2ctl /usr/bin/v2ray/
+ADD https://storage.googleapis.com/v2ray-docker/geoip.dat /usr/bin/v2ray/
+ADD https://storage.googleapis.com/v2ray-docker/geosite.dat /usr/bin/v2ray/
 
 ENV PATH /usr/bin/v2ray:$PATH
 COPY default.conf /etc/nginx/conf.d/default.conf
