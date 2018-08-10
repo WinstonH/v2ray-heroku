@@ -27,7 +27,7 @@ RUN VER=$(curl -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest 
 && mv v2ctl /usr/bin/v2ray/ \
 && mv *.dat /usr/bin/v2ray/ \
 && cd .. \
-&& rm -rf v2ray-$VER-linux-64
+&& rm -rf v2ray-$VER-linux-64 v2ray-linux-64.zip
 
 ENV PATH /usr/bin/v2ray:$PATH
 COPY default.conf /etc/nginx/conf.d/default.conf
