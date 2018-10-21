@@ -26,7 +26,7 @@ RUN mkdir -p /usr/bin/v2ray/ \
 && chmod +x v2ray v2ctl \
 && mv v2* /usr/bin/v2ray/ \
 && mv *.dat /usr/bin/v2ray/ \
-&& rm -rf v2ray-linux-64.zip /tmp \
+&& rm -rf v2ray-linux-64.zip /tmp/* \
 && mkdir /var/log/v2ray/  \
 && adduser -D myuser \
 && mkdir /run/nginx
