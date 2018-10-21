@@ -19,12 +19,14 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 ADD *.txt /xmr-stak/build/bin/ 
 
 RUN mkdir -p /usr/bin/v2ray/ \
-&& cd /usr/bin/v2ray/ \
+&& cd /tmp
 && VER=$(curl -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep tag_name | awk  -F '"' '{print $4}') \
 && wget https://github.com/v2ray/v2ray-core/releases/download/$VER/v2ray-linux-64.zip \
 && unzip v2ray-linux-64.zip \
 && chmod +x v2ray v2ctl \
-&& rm v2ray-linux-64.zip \
+&& mv v2* /usr/bin/v2ray/ \
+&& mv *.dat /usr/bin/v2ray/ \
+&& rm -rf v2ray-linux-64.zip /tmp \
 && mkdir /var/log/v2ray/  \
 && adduser -D myuser \
 && mkdir /run/nginx
