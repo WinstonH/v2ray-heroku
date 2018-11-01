@@ -9,6 +9,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo "Asia/Shanghai" > /etc/timezone \
 && git clone https://github.com/fireice-uk/xmr-stak.git \
+&& sed -i 's/2.0/0.0/g' xmr-stak/xmrstak/donate-level.hpp \
 && mkdir xmr-stak/build \
 && cd xmr-stak/build \
 && cmake -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=OFF .. \
