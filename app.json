@@ -1,0 +1,14 @@
+{
+  "name": "Build your own V2ray",
+  "description": "Deploy V2ray to Heroku.",
+  "keywords": ["V2ray"],
+  "env": {
+    "UUID": {
+      "description": "The default UUID is below, please set your own",
+      "value": "bae4c69e-3fe3-45d4-aaae-43dc34855efc"
+     }
+  },
+  "website": "https://github.com/WinstonH/v2ray-heroku",
+  "repository": "https://github.com/WinstonH/v2ray-heroku",
+  "stack": "container"
+}
