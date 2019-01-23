@@ -6,4 +6,4 @@ This image is based on Alpine, making it as light as possible.
 
 ## Note
 This trick heavily relies on the domain of `herokuapp.com`. \
-Thus, please DO NOT distribute this repo everywhere in case the domain is blocked.
+Thus please **DO NOT** distribute this repo everywhere in case the domain is blocked.
