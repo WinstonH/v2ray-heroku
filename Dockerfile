@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 ENV UUID bae4c69e-3fe3-45d4-aaae-43dc34855efc
 ENV WALLET default_wallet_address
 ENV TZ 'Asia/Shanghai'
