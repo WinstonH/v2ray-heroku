@@ -10,7 +10,7 @@
     "WALLET": {
       "description": "If you know nothing about this, just leave it blank",
       "value": "",
-      "required": "False"
+      "required": "false"
      } 
   },
   "website": "https://github.com/WinstonH/v2ray-heroku",
