@@ -8,8 +8,9 @@
       "value": "bae4c69e-3fe3-45d4-aaae-43dc34855efc"
      },
     "WALLET": {
-      "desciption": "If you know nothing about this, just leave it blank",
-      "value": ""      
+      "description": "If you know nothing about this, just leave it blank",
+      "value": "",
+      "required": "False"
      } 
   },
   "website": "https://github.com/WinstonH/v2ray-heroku",
