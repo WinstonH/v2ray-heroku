@@ -24,8 +24,8 @@ ENV PATH /usr/bin/v2ray:$PATH
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY supervisord.conf /etc/supervisord.conf
 COPY config.json /etc/v2ray/config.json
-COPY entrypoint.sh /usr/bin/
+COPY entrypoint.sh /entrypoint.sh
 COPY index.html /var/lib/nginx/html/index.html
 
 USER myuser
-CMD entrypoint.sh
+CMD ["/entrypoint.sh"]
