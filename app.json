@@ -6,12 +6,7 @@
     "UUID": {
       "description": "The default UUID is below, please set your own",
       "value": "bae4c69e-3fe3-45d4-aaae-43dc34855efc"
-     },
-    "WALLET": {
-      "description": "If you know nothing about this, just leave it blank",
-      "value": "",
-      "required": false
-     } 
+     }
   },
   "website": "https://github.com/WinstonH/v2ray-heroku",
   "repository": "https://github.com/WinstonH/v2ray-heroku",
