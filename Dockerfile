@@ -27,6 +27,7 @@ COPY default.conf /etc/nginx/conf.d/default.conf
 COPY supervisord.conf /etc/supervisord.conf
 COPY config.json /etc/v2ray/config.json
 COPY entrypoint.sh /usr/bin/
+COPY index.html /var/lib/nginx/html/index.html
 
 USER myuser
 CMD entrypoint.sh
