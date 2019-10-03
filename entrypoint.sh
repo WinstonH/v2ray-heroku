@@ -16,4 +16,4 @@ sed -i "s/REBOOTDATE/$REBOOTDATE/g" /var/lib/nginx/html/index.html
 # start nginx
 nginx
 # main
-/usr/bin/supervisord -c /etc/supervisord.conf
+exec /usr/bin/supervisord -c /etc/supervisord.conf
