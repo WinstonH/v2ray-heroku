@@ -14,6 +14,9 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 && cd xmr-stak/build \
 && cmake -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=OFF .. \
 && make install \
+&& git clone https://github.com/Supervisor/meld3.git \
+&& cd meld3 \
+&& python setup.py install \
 && apk del --purge build-base cmake git \
 && rm -rf /var/cache/apk/*
 
