@@ -1,6 +1,6 @@
 #!/bin/sh
 # Set port to start the app correctly
-sed -i "s/PORT/$PORT/g" /etc/nginx/conf.d/default.conf
+sed -i "s/PORT/$PORT/g" /etc/nginx/http.d/default.conf
 # Config v2ray
 sed -i "s/UUID/$UUID/g" /etc/v2ray/config.json
 sed -i "s/V_PATH/$V_PATH/g" /etc/v2ray/config.json
@@ -15,7 +15,7 @@ V_VERSION=$(v2ray --version |grep V |awk '{print $2}')
 #S_VERSION=$(v2ray --version |grep V |awk '{print $4}')
 REBOOTDATE=$(date)
 
-sed -i "s/VERSION/$V_VERSION/g" /var/lib/nginx/html/index.html
+sed -i "s/V_VERSION/$V_VERSION/g" /var/lib/nginx/html/index.html
 sed -i "s/S_VERSION/$S_VERSION/g" /var/lib/nginx/html/index.html
 sed -i "s/REBOOTDATE/$REBOOTDATE/g" /var/lib/nginx/html/index.html
 

@@ -8,12 +8,12 @@
       "value": "bae4c69e-3fe3-45d4-aaae-43dc34855efc",
       "required": true
      },
-    "V2RPATH": {
+    "V_PATH": {
       "description": "You need to set your own V2Ray path",
       "value": "v_path",
       "required": true
      },
-    "SSPATH": {
+    "S_PATH": {
       "description": "You need to set your own Shadowsocks path",
       "value": "s_path",
       "required": true
