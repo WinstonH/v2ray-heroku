@@ -19,7 +19,7 @@
     "streamSettings": {
       "network": "ws",
       "wsSettings": {
-        "path": "/ray"
+        "path": "/V_PATH"
       }
     }
   },
