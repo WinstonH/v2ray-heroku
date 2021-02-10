@@ -17,6 +17,11 @@
       "description": "You need to set your own Shadowsocks path",
       "value": "s_path",
       "required": true
+     },
+    "PASSWORD": {
+      "description": "You need to set your own Shadowsocks password",
+      "value": "herosocks",
+      "required": true
      }
   },
   "website": "https://github.com/WinstonH/v2ray-heroku",

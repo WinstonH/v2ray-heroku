@@ -1,5 +1,6 @@
 FROM alpine:latest
 ENV UUID bae4c69e-3fe3-45d4-aaae-43dc34855efc
+ENV PASSWORD herosocks
 ENV V_PATH v_path
 ENV S_PATH s_path
 ENV TZ 'Asia/Shanghai'
@@ -7,19 +8,28 @@ ENV TZ 'Asia/Shanghai'
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
 && apk upgrade --no-cache \
 && apk --update --no-cache add tzdata supervisor ca-certificates nginx curl wget unzip openssl \
+shadowsocks-libev \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo "Asia/Shanghai" > /etc/timezone \
 && rm -rf /var/cache/apk/*
 
 RUN cd /tmp \
+# Install v2ray
 && wget -qO- https://raw.githubusercontent.com/v2fly/docker/master/v2ray.sh | sh \
 && mkdir /var/log/v2ray/  \
+# Install v2ray-plugin for ss
+&& plugin_version=$(wget -O - https://api.github.com/repos/shadowsocks/v2ray-plugin/releases/latest | sed 's/,/\n/g' | grep tag_name | awk  -F '"' '{print $4}') \
+&& wget https://github.com/shadowsocks/v2ray-plugin/releases/download/$plugin_version/v2ray-plugin-linux-amd64-$plugin_version.tar.gz \
+&& tar -xzvf v2ray-plugin-linux-amd64-*.tar.gz \
+&& mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin \
+&& rm -rf /tmp/* \
+# Config env for heroku
 && adduser -D myuser \
 && mkdir /run/nginx \
 && mkdir -p /var/tmp/nginx/client_body
 
 ADD etc /etc
-COPY entrypoint.sh /usr/bin/
+COPY entrypoint.sh /usr/bin/entrypoint.sh
 
 USER myuser
 CMD entrypoint.sh
