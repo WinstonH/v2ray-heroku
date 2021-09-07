@@ -12,10 +12,10 @@ shadowsocks-libev \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo "Asia/Shanghai" > /etc/timezone \
 && rm -rf /var/cache/apk/*
-
+COPY install_v2ray.sh /tmp/install_v2ray.sh
 RUN cd /tmp \
 # Install v2ray
-&& wget -qO- https://raw.githubusercontent.com/v2fly/docker/master/v2ray.sh | sh \
+&& /tmp/install_v2ray.sh \
 && mkdir /var/log/v2ray/  \
 # Install v2ray-plugin for ss
 && plugin_version=$(wget -O - https://api.github.com/repos/shadowsocks/v2ray-plugin/releases/latest | sed 's/,/\n/g' | grep tag_name | awk  -F '"' '{print $4}') \
@@ -25,7 +25,6 @@ RUN cd /tmp \
 && rm -rf /tmp/* \
 # Config env for heroku
 && adduser -D myuser \
-&& mkdir /run/nginx \
 && mkdir -p /var/tmp/nginx/client_body
 
 ADD etc /etc
