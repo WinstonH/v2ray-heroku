@@ -11,8 +11,8 @@ sed -i "s/S_PATH/$S_PATH/g" /etc/shadowsocks/config.json
 sed -i "s/S_PATH/$S_PATH/g" /etc/nginx/http.d/default.conf
 
 wget https://raw.githubusercontent.com/WinstonH/v2ray-heroku/master/index.html -O /var/lib/nginx/html/index.html
-V_VERSION=$(v2ray --version |grep V |awk '{print $2}')
-S_VERSION=$(ss-server -h | grep shadowsocks-libev | awk '{print $2}')
+V_VERSION=$(/etc/v2ray/v2ray --version |grep V |awk '{print $2}')
+S_VERSION=$(/etc/shadowsocks/ssserver -V | grep shadowsocks | awk '{print $2}')
 REBOOTDATE=$(date)
 
 sed -i "s/V_VERSION/$V_VERSION/g" /var/lib/nginx/html/index.html

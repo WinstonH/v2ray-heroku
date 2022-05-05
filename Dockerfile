@@ -8,12 +8,19 @@ ENV TZ 'Asia/Shanghai'
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
 && apk upgrade --no-cache \
 && apk --update --no-cache add tzdata supervisor ca-certificates nginx curl wget unzip openssl \
-shadowsocks-libev \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo "Asia/Shanghai" > /etc/timezone \
 && rm -rf /var/cache/apk/*
 COPY install_v2ray.sh /tmp/install_v2ray.sh
+
+ADD etc /etc
+
 RUN cd /tmp \
+# Install ss
+&& ss_version=$(wget -O - https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases/latest | sed 's/,/\n/g' | grep tag_name | awk  -F '"' '{print $4}') \
+&& wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/$ss_version/shadowsocks-$ss_version.x86_64-unknown-linux-musl.tar.xz \
+&& tar xvJf shadowsocks-$ss_version.x86_64-unknown-linux-musl.tar.xz \
+&& mv ss* /etc/shadowsocks/ \
 # Install v2ray
 && /tmp/install_v2ray.sh \
 && mkdir /var/log/v2ray/  \
@@ -27,7 +34,6 @@ RUN cd /tmp \
 && adduser -D myuser \
 && mkdir -p /var/tmp/nginx/client_body
 
-ADD etc /etc
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 
 USER myuser

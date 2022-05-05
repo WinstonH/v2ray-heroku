@@ -27,9 +27,9 @@ fi
 # Prepare
 echo "Prepare to use"
 unzip v2ray.zip && chmod +x v2ray v2ctl
-mv v2ray v2ctl /usr/bin/
-mv geosite.dat geoip.dat /usr/local/share/v2ray/
-mv config.json /etc/v2ray/config.json
+mv v2ray /etc/v2ray/
+mv v2ctl /etc/v2ray/
+mv *.dat /etc/v2ray/
 
 # Clean
 rm -rf ${PWD}/*
